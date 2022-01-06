@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JIRA Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet"></head>
+<body>
+    <div id="wrapper">
+        <nav>
+            <div id = "left-nav">
+                <div id="left-nav-icons">
+                        <div id = "left-nav-logo">    
+                            <img src="images/jira-logo.png">
+                        </div>    
+                        <div id = "left-nav-search">
+                            <img src="images/search-icon.png">
+                            <p id ="left-nav-text">SEARCH ISSUES</p>
+                        </div>
+                        <div id = "left-nav-create">
+                            <img src="images/create-icon.png">
+                            <p id ="left-nav-text">CREATE ISSUE</p>
+                        </div>
+                        <div id = "left-nav-help">
+                            <img src="images/help-icon.png">
+                            <p id ="left-nav-text">ABOUT</p>
+                        </div>  
+                </div>            
+            </div>
+            <div id = "project-nav">
+                <div id = "project-details">
+                    <img src="images/avt.png">
+                    <div id = "project-name">
+                        <p style="font-weight: 600;">40th Intern</p>
+                        <p style="color:darkslategray; font-size: 12px;">Software Project</p>
+                    </div>
+                </div>  
+                <div id="project-setting">
+                    <ul>
+                        
+                        <li><img src="images/board-black.svg">Kanban Board</li>
+                        <img>
+                        <li><img src="images/setting-active.svg">Project Setting</li>
+                    </ul>    
+                </div>      
+            </div>
+        </nav>
+         
+        <div id="main-container">
+            <div id = "board-info"> Project / 40th Intern / Kanban Board </div>
+            <h3>Kanban Board</h3>
+            <div>Search</div>
+
+            <div id= "tickets-container">
+                <div id="status1">BACKLOG
+                    <div id="ticket1">
+                        <p>TICKET NUMBER 1</p>
+                    </div>
+                </div>
+                <div id="status2">DONE</div>
+            </div>
+        </div>  
+        
+    </div> 
+</body>
+<script src="src/script.js"></script>
+
+</html>
