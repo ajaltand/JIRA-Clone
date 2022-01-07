@@ -147,7 +147,7 @@ li{
     display: flex;
 }
 
-#status1{
+#status{
     background-color:grey;
     width: 300px;
     height: 1000px;
@@ -156,14 +156,24 @@ li{
     padding: 10px 10px;
 }
 
-#status2{
-    background-color: grey;
-    width: 300px;
-    height: 1000px;
+
+
+#ticket-box{
+    padding: 10px 15px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: white;
+  
+    cursor: pointer;
+
 }
 
-#ticket1{
-    background-color: white;
-    height: 50px;
+.dropDivArea{
+    height: 10px;
+    transition: background 0.15s, height 0.15s;
+}
 
+.dropDivArea--active{
+    height: 40px;
+    
 }
