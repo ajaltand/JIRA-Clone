@@ -21,6 +21,7 @@ export default class Ticket {
 
         const ticketModal = document.getElementById("ticket-modal");
         const close = document.getElementById("close");
+        const del = document.getElementById("delete");
         
 
         this.elements.root.addEventListener("dragstart", e => {
@@ -34,6 +35,12 @@ export default class Ticket {
 
             close.addEventListener("click", () => {
                 ticketModal.style.display="none";
+            })
+
+            del.addEventListener("click", () => {
+                location.reload();
+                JiraAPI.deleteItem(id);
+
             })
         })
 

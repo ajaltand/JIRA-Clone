@@ -37,7 +37,7 @@ cancelBtn.addEventListener("click", () => {
 })
 
 ticketClicked.addEventListener("click", () => {
-    console.log("clicked")
+  
     ticketModal.style.display="flex";
 })
 

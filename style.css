@@ -204,9 +204,15 @@ li{
 
 #create-modal-content {
     width: 500px;
-    height: 300px;
     background-color: white;
     border-radius: 4px;
+    padding: 30px;
+}
+
+
+#create-modal-content input,select {
+    margin-bottom: 20px;
+    margin-top: 5px;
 }
 
 #ticket-modal {

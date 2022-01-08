@@ -68,39 +68,47 @@
     </div> 
     <div id="create-modal">
         <div id="create-modal-content">
-            <input type="text" id="ticket-name">
+            <h1 style="margin-bottom: 30px; font-size: x-large;">Create Ticket</h1>
 
+            <label>Issue Type</label><br>
             <select id="ticket-type" >
                 <option></option>
                 <option>Issue</option>
                 <option>Bug</option>
                 <option>Story</option>   
-              </select>
+              </select><br>
 
-              <input type="text" id="ticket-details">
+              <label>Short Summary</label><br>
+              <input type="text" id="ticket-name"><br>
 
+              <label>Description</label><br>
+              <input type="text" id="ticket-details"><br>
+
+              <label>Reporter</label><br>
               <select id="reporter" >
                 <option></option>
                 <option>Adam Jones</option>
                 <option>Nick Fury</option>
                 <option>Evans Rose</option>   
-              </select>
+              </select><br>
 
+              <label>Assignees</label><br>
               <select id="assignee" >
                 <option></option>
                 <option>Adam Jones</option>
                 <option>Nick Fury</option>
                 <option>Evans Rose</option>   
-              </select>
+              </select><br>
 
+              <label>Priority</label><br>
               <select id="priority" >
                 <option></option>
                 <option>High</option>
                 <option>Medium</option>
                 <option>Low</option>   
-              </select>
+              </select><br>
 
-            <button id = "create-btn">Create Ticket</button>
+            <button id = "create-btn">Create Ticket</button><br>
             <button id = "cancel-btn">Cancel</button>
         </div>
     </div>
@@ -109,6 +117,7 @@
         <div id="ticket-modal-content">
             <p id ="p"></p>
             <p id = "close">CLOSE</p>
+            <div id = "delete">DELETE</div>
     </div>
 </body>
 <script src="src/script.js" type="module"></script>
