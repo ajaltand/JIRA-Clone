@@ -13,9 +13,12 @@ export default class Status {
 
         this.elements.root.dataset.id = id;
         this.elements.title.textContent = title;
-        
+
         const DropDivAreaUp = DropDivArea.createDropDivArea();
         this.elements.tickets.appendChild(DropDivAreaUp)
+
+        const DropDivAreaDown = DropDivArea.createDropDivArea();
+        this.elements.root.appendChild(DropDivAreaDown);
 
         JiraAPI.getItem(id).forEach(ticket => {
             this.renderTicket(ticket)
@@ -37,7 +40,7 @@ export default class Status {
         `).children[0];
     }
     renderTicket(data) {
-        const ticket = new Ticket(data.id, data.content);
+        const ticket = new Ticket(data.id, data.issueName, data.issueType, data.issueDetail, data.issueReportor, data.issueAssignee, data.issuePriority);
 
         this.elements.tickets.appendChild(ticket.elements.root);
     }

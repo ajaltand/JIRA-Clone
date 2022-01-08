@@ -5,4 +5,5 @@ new JiraBoard(
     document.querySelector("#tickets-container")
 )
 
-//JiraAPI.insertItem(2,"Drag n Drop");
+//JiraAPI.insertItem(1,"local host Storage");
+JiraAPI.viewItems(727);

@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet"></head>
-<body>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400&display=swap" rel="stylesheet">
+</head>
+       
+    <body> 
     <div id="wrapper">
         <nav>
             <div id = "left-nav">
@@ -23,7 +26,9 @@
                         </div>
                         <div id = "left-nav-create">
                             <img src="images/create-icon.png">
-                            <p id ="left-nav-text">CREATE ISSUE</p>
+                            <div id="create-issue">
+                                <p id ="left-nav-text">CREATE ISSUE</p>
+                            </div>
                         </div>
                         <div id = "left-nav-help">
                             <img src="images/help-icon.png">
@@ -52,23 +57,62 @@
          
         <div id="main-container">
             <div id = "board-info"> Project / 40th Intern / Kanban Board </div>
-            <h3>Kanban Board</h3>
-            <div>Search</div>
+            <h1 style="font-size: 25px; padding-left: 20px;">Kanban Board</h1>
+            <div id="search"><input type="text"></div>
 
             <div id= "tickets-container">
-                <!-- <div id ="status">
-                    <div id="status-title">BACKLOG
-                    <div id="ticket">
-                        <p>TICKET NUMBER 1</p>
-                    </div>
-                </div>
-                </div> -->
+                
             </div>
         </div>  
         
     </div> 
+    <div id="create-modal">
+        <div id="create-modal-content">
+            <input type="text" id="ticket-name">
+
+            <select id="ticket-type" >
+                <option></option>
+                <option>Issue</option>
+                <option>Bug</option>
+                <option>Story</option>   
+              </select>
+
+              <input type="text" id="ticket-details">
+
+              <select id="reporter" >
+                <option></option>
+                <option>Adam Jones</option>
+                <option>Nick Fury</option>
+                <option>Evans Rose</option>   
+              </select>
+
+              <select id="assignee" >
+                <option></option>
+                <option>Adam Jones</option>
+                <option>Nick Fury</option>
+                <option>Evans Rose</option>   
+              </select>
+
+              <select id="priority" >
+                <option></option>
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>   
+              </select>
+
+            <button id = "create-btn">Create Ticket</button>
+            <button id = "cancel-btn">Cancel</button>
+        </div>
+    </div>
+
+    <div id="ticket-modal">
+        <div id="ticket-modal-content">
+            <p id ="p"></p>
+            <p id = "close">CLOSE</p>
+    </div>
 </body>
 <script src="src/script.js" type="module"></script>
 <script src="src/animation.js"></script>
+<script src="src/modal.js" type="module"></script>
 
 </html>

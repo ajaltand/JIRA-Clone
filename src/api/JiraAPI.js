@@ -9,12 +9,17 @@ export default class JiraAPI {
         return status.tickets;
     }
 
-    static insertItem(statusId, content) {
+    static insertItem(statusId, issueName, issueType, issueDetail, issueReportor, issueAssignee, issuePriority) {
         const data = read();
         const status = data.find(status => status.id == statusId);
         const ticket = {
             id: Math.floor(Math.random() * 1000),
-            content
+            issueName,
+            issueType,
+            issueDetail, 
+            issueReportor, 
+            issueAssignee, 
+            issuePriority
             
             
         }
@@ -24,6 +29,22 @@ export default class JiraAPI {
 
         return ticket;
 
+    }
+
+    static viewItems(ticketId){
+        const data = read();
+        const [ticket, currentStatus] =(() => {
+            for (const status of data){
+                const ticket = status.tickets.find(ticket => ticket.id == ticketId);
+
+                if(ticket){
+                    console.log(ticket.issueName)
+                    return [ticket, status]
+                }
+                
+             }
+             
+        })();
     }
 
     static updateItems(ticketId, newData){
@@ -38,7 +59,8 @@ export default class JiraAPI {
              }
         })();
 
-        ticket.content = newData.content === undefined ? ticket.content : newData.content;
+        ticket.issueName = newData.issueName === undefined ? ticket.issueName : newData.issueName;
+        ticket.issueType = newData.issueType === undefined ? ticket.issueType : newData.issueType;
         
 
         // Updates the status and it's position
