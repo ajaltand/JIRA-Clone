@@ -115,13 +115,72 @@
 
     <div id="ticket-modal">
         <div id="ticket-modal-content">
-            <p id ="p"></p>
-            <p id = "close">CLOSE</p>
-            <div id = "delete">DELETE</div>
+            <div id="content-text">
+                <span id="code"><p id ="type"></p>-<p id ="t-id"></p></span>
+                <div id="typeDropdown" class="dropdown-content">
+                    <p id="issue">Issue</p>
+                    <p id="bug">Bug</p>
+                    <p id="story">Story</p>
+                </div>
+                <h1 contenteditable id ="t-name"></h1>
+                <div>Description: <p contenteditable id ="t-details"></p></div>
+                Comments
+            </div>    
+            <div id = "content-details">
+                <div id="actions">
+                    <div id = "delete">DELETE</div>
+                    <p id = "close">CLOSE</p>
+                </div>    
+                
+                <div id="right-details">
+                    <h1>STATUS</h1> 
+                    <span id ="t-status"></span>
+                    <div id="statusDropdown" class="dropdown-content">
+                        <p id="backlog">BACKLOG</p>
+                        <p id="progress">IN PROGRESS</p>
+                        <p id="done">DONE</p>
+                    </div>
+                </div>
+
+                <div id="right-details">
+                    <h1>ASSIGNEES</h1> 
+                    <p id ="t-assignee"></p>
+                    <div id="assigneeDropdown" class="dropdown-content">
+                        <p id="adam">Adam Jones</p>
+                        <p id="nick">Nick Fury</p>
+                        <p id="evans">Evans Rose</p>
+                    </div>
+                </div>
+
+                <div id="right-details">
+                    <h1>REPORTER</h1> 
+                    <p id ="t-reporter"></p>
+                    <div id="reporterDropdown" class="dropdown-content">
+                        <p id="adam1">Adam Jones</p>
+                        <p id="nick2">Nick Fury</p>
+                        <p id="evans3">Evans Rose</p>
+                    </div>
+                </div>
+
+                <div id="right-details">
+                    <h1>PRIORITY</h1> 
+                    <p id ="t-priority"></p>
+                    <div id="priorityDropdown" class="dropdown-content">
+                        <p id="high">High</p>
+                        <p id="medium">Medium</p>
+                        <p id="low">Low</p>
+                    </div>
+                </div>
+                
+            </div>    
+
+            
     </div>
 </body>
 <script src="src/script.js" type="module"></script>
 <script src="src/animation.js"></script>
 <script src="src/modal.js" type="module"></script>
+<script src="src/dropDown.js" type="module"></script>
+
 
 </html>

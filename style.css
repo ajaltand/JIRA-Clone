@@ -228,8 +228,62 @@ li{
 }
 
 #ticket-modal-content {
-    width: 500px;
-    height: 300px;
+    width: 800px;
+    height: 500px;
     background-color: white;
     border-radius: 4px;
+    padding: 30px 30px;
+    display: flex;
 }
+#content-text {
+    width: 75%;
+}
+
+#content-details{
+    width: 25%;
+    
+}
+
+#actions{
+    display: flex;
+}
+
+#code{
+    display: flex;
+}
+
+#t-name{
+    font-size: 25px;
+    margin: 20px 0;
+}
+
+#t-details{
+    margin: 20px 0 ;
+}
+
+#right-details{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: dimgray;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+
+  
+  .show {display: block;}
+  .show1 {display: block;}
+  .show2 {display: block;}
+  
+
+
+
+  
