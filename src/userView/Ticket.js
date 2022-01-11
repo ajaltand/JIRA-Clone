@@ -8,6 +8,10 @@ export default class Ticket {
     constructor(id, issueName, issueType, issueDetail, issueReportor, issueAssignee, issuePriority) {
         this.elements = {};
         this.elements.root = Ticket.createDiv();
+
+        const DropDivAreaUp = DropDivArea.createDropDivArea();
+        this.elements.root.appendChild(DropDivAreaUp)
+
         this.elements.cont = this.elements.root.querySelector("#ticket-title")
         this.elements.type = this.elements.root.querySelector("#ticket-type-name")
 
@@ -18,10 +22,6 @@ export default class Ticket {
         const tAssignee = document.getElementById("t-assignee");
         const tReporter = document.getElementById("t-reporter");
         const tPriority = document.getElementById("t-priority");
-        
-
-        
-
        
         this.elements.root.dataset.id = id;
         this.elements.cont.textContent = issueName;

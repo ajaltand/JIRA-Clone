@@ -46,26 +46,49 @@
                 </div>  
                 <div id="project-setting">
                     <ul>
+                        <li class="li active"><div id ="board" style="display: flex;"><img src="images/baord-active.svg"><p class="project-board-text">Kanban Board</p></div></li>
                         
-                        <li><img src="images/board-black.svg">Kanban Board</li>
-                        <img>
-                        <li><img src="images/setting-active.svg">Project Setting</li>
+                        <li class="li"><div id ="setting" style="display: flex;"><img src="images/setting-active.svg"><p class="project-setting-text">Project Setting</p></div></li>
                     </ul>    
                 </div>      
             </div>
         </nav>
          
         <div id="main-container">
-            <div id = "board-info"> Project / 40th Intern / Kanban Board </div>
+            <div id = "board-info"> Project / <span id="p-name"></span> / Kanban Board </div>
             <h1 style="font-size: 25px; padding-left: 20px;">Kanban Board</h1>
             <div id="search"><input type="text"></div>
 
             <div id= "tickets-container">
                 
             </div>
-        </div>  
+        </div>
+        <div id="project-container">
+            <div id = "board-info"> Project / <span id="p-name1">i</span> / Project Setting </div>
+            <h1 style="font-size: 25px; padding-left: 20px;">Project Setting</h1>
+            <div id="project-input">
+                <label>Name</label><br>
+              <input type="text" id=""><br>
+              <label>URL</label><br>
+              <input type="text" id=""><br>  
+              <label>Description</label><br>
+              <label>Describe the project in as much detail as you'd like.</label><br>
+              <input type="text" id="" class="pro-des"><br>
+              <label>Project Category</label><br>
+              <select id="reporter" >
+                <option></option>
+                <option>Software</option>
+                <option>Marketing</option>
+                <option>Business</option>   
+              </select><br>
+
+              <button id ="save-btn">Save Changes</button>
+            </div>
+        </div>    
         
-    </div> 
+  
+        
+     
     <div id="create-modal">
         <div id="create-modal-content">
             <h1 style="margin-bottom: 30px; font-size: x-large;">Create Ticket</h1>
@@ -77,12 +100,16 @@
                 <option>Bug</option>
                 <option>Story</option>   
               </select><br>
+              <div id="info">Click to view different Issue Type</div><br>
+              <hr style=" border-top: 1px solid #bbb; margin-bottom:15px">
 
               <label>Short Summary</label><br>
               <input type="text" id="ticket-name"><br>
+              <div id="info">Concisely summarize the issue in one or two sentences.</div><br>
+
 
               <label>Description</label><br>
-              <input type="text" id="ticket-details"><br>
+              <input type="text" id="ticket-details" class="ticket-detail"><br>
 
               <label>Reporter</label><br>
               <select id="reporter" >
@@ -103,13 +130,15 @@
               <label>Priority</label><br>
               <select id="priority" >
                 <option></option>
-                <option>High</option>
+                <option data-imgsrc="images/high.png">High</option>
                 <option>Medium</option>
                 <option>Low</option>   
               </select><br>
-
-            <button id = "create-btn">Create Ticket</button><br>
-            <button id = "cancel-btn">Cancel</button>
+              <div id="info">Priority in relation to other issues.</div><br>
+            <div id="btn">
+                <button id = "create-btn">Create Ticket</button>
+                <button id = "cancel-btn">Cancel</button>
+        </div>  
         </div>
     </div>
 
@@ -125,11 +154,12 @@
                 <h1 contenteditable id ="t-name"></h1>
                 <div>Description: <p contenteditable id ="t-details"></p></div>
                 Comments
+                <input>
             </div>    
             <div id = "content-details">
                 <div id="actions">
-                    <div id = "delete">DELETE</div>
-                    <p id = "close">CLOSE</p>
+                    <div id = "delete" style="margin-right:20px"><img src="images/delete.png" width="20px" height="20px"></div>
+                    <div id = "close"><img src="images/close.png" width="20px" height="20px"></div>
                 </div>    
                 
                 <div id="right-details">
@@ -174,7 +204,7 @@
                 
             </div>    
 
-            
+        </div>  
     </div>
 </body>
 <script src="src/script.js" type="module"></script>

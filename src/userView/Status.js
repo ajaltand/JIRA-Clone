@@ -14,11 +14,10 @@ export default class Status {
         this.elements.root.dataset.id = id;
         this.elements.title.textContent = title;
 
-        const DropDivAreaUp = DropDivArea.createDropDivArea();
-        this.elements.tickets.appendChild(DropDivAreaUp)
+        
 
         const DropDivAreaDown = DropDivArea.createDropDivArea();
-        this.elements.root.appendChild(DropDivAreaDown);
+        this.elements.tickets.appendChild(DropDivAreaDown);
 
         JiraAPI.getItem(id).forEach(ticket => {
             this.renderTicket(ticket)
@@ -27,6 +26,7 @@ export default class Status {
     }
 
     static createDiv() {
+        
         const range = document.createRange();
 
         range.selectNode(document.body);

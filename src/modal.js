@@ -4,7 +4,8 @@ import JiraAPI from "./api/JiraAPI.js";
 const createTicketModal = document.getElementById("create-modal");
 const createBtn = document.getElementById("create-btn");
 const cancelBtn = document.getElementById("cancel-btn");
-const createIssue = document.getElementById("create-issue");
+
+const createIssue = document.getElementById("left-nav-create");
 const ticketName = document.getElementById("ticket-name");
 const ticketType = document.getElementById("ticket-type");
 const ticketDetails = document.getElementById("ticket-details");
@@ -30,7 +31,14 @@ createIssue.addEventListener("click", () => {
         createTicketModal.style.display="none";
         location.reload();
     })
+    window.onclick = function(event) {
+        if (event.target == createTicketModal){
+            createTicketModal.style.display="none";
+        }
+    }
+    
 })
+
 
 cancelBtn.addEventListener("click", () => {
     createTicketModal.style.display="none";

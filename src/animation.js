@@ -1,11 +1,11 @@
 const leftNav = document.getElementById("left-nav");
-const leftNavHover = document.querySelectorAll("#left-nav")[0];
+
 const leftNavText1 = document.querySelectorAll("#left-nav-text")[0]
 const leftNavText2 = document.querySelectorAll("#left-nav-text")[1]
 const leftNavText3 = document.querySelectorAll("#left-nav-text")[2]
 
 
-leftNavHover.addEventListener("mouseenter", function(e){
+leftNav.addEventListener("mouseenter", function(e){
     let wdth = 60;
     hoverAnimation = setInterval( () => {
         if (wdth== 200){
@@ -21,7 +21,7 @@ leftNavHover.addEventListener("mouseenter", function(e){
     },5)
 })
 
-leftNavHover.addEventListener("mouseleave", function(e){
+leftNav.addEventListener("mouseleave", function(e){
     let wdth = 200;
     hoverAnimation = setInterval( () => {
         if (wdth== 60){
