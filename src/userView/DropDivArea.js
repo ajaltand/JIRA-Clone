@@ -1,5 +1,4 @@
 import JiraAPI from "../api/JiraAPI.js";
-import JiraBoard from "./JiraBoard.js";
 
 export default class DropDivArea {
     static createDropDivArea() {

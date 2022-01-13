@@ -1,3 +1,5 @@
+// ANIMATION ON MOUSEOVER ADN MOUSEOUT IN LEFT-NAV
+
 const leftNav = document.getElementById("left-nav");
 
 const leftNavText1 = document.querySelectorAll("#left-nav-text")[0]

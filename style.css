@@ -21,12 +21,6 @@ nav{
     position: absolute;
 }
 
-#left-nav-icons{
-    
-    /* width: 150px; */
-}
-
-
 #left-nav-logo img{
     width: 30px;
     height: 30px;
@@ -47,7 +41,6 @@ nav{
 #left-nav-search:hover{
     cursor: pointer;
     background-color: #4f7fc7;
-    
 }
 
 #left-nav-search img{
@@ -76,7 +69,6 @@ nav{
 }
 
 #left-nav-create:hover{
-    
     cursor: pointer;
     background-color: #4f7fc7;
 }
@@ -158,7 +150,11 @@ nav{
 #project-setting {
     margin-top: 50px;
     margin-left: 20px;
-    
+}
+
+#report{
+    margin-left: 20px;
+    cursor:not-allowed;
 }
 
 li{
@@ -185,7 +181,6 @@ li{
     width: 20px;
     height: 20px;   
     margin-right: 10px;
-
 }
 
 
@@ -239,6 +234,7 @@ li{
 
 #project-input input,select{
     margin-bottom: 20px;
+    border: 1px solid;
 }
 
 .pro-des{
@@ -275,8 +271,6 @@ li{
     padding: 10px 10px;
 }
 
-
-
 #ticket-box{
     padding: 10px 15px;
     box-sizing: border-box;
@@ -287,10 +281,8 @@ li{
 }
 
 #ticket-box:hover{
-    
     border-radius: 6px;
     background-color: rgb(241, 238, 238);
-      
 }
 
 
@@ -309,8 +301,6 @@ li{
     margin-right: 10px;
 }
 
-
-
 #title-img{
     display: flex;
     margin-top: 15px;
@@ -318,12 +308,18 @@ li{
 
 .dropDivArea{
     height: 30px;
-    margin-top: 40px;
-    /* transition: background 0.15s, height 0.15s; */
+    margin-top: 50px;
+    margin-top: 50px;
+    border-radius: 5px;
 }
 
 .dropDivArea--active{
-    height: 50px;   
+    height:100px;   
+    background-color: rgb(224, 218, 218);
+}
+
+#ticket-list{
+    margin-top: 50px;
 }
 
 #create-modal {
@@ -346,12 +342,16 @@ li{
 }
 
 label{
-    font-size: 13px;
+    font-size: 14px;
     color: rgba(14, 13, 13);
 }
 
+#ticket-type{
+    margin-bottom: 1px;
+}
+
 #info{
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     font-size: 13px;
     color: dimgray;
     font-size: 12px;
@@ -364,14 +364,19 @@ label{
     margin-bottom: 20px;
 }
 
-
 input,select {
     margin-top: 10px;
     height: 35px;
     width: 650px;
-    background-color: #f3f2f2;
-    border:1px slategrey;
+    background-color: #f1eaea;
+    border:1px solid;
     border-radius: 5px;
+}
+
+#valid-text{
+    color: red; 
+    margin-top: -30px;
+    display: none;
 }
 
 #btn{
@@ -423,18 +428,187 @@ input,select {
     display: flex;
 }
 
+#actions{
+    display: flex;
+    margin-left: 130px;
+    margin-top: -5px;
+}
+
+#delete{
+    margin-top: -2px;
+    cursor: pointer;
+    padding: 5px 5px;
+}
+
+#delete:hover{
+    background-color: rgb(187, 186, 186);
+}
+
+#close{
+    cursor: pointer;
+    padding: 5px 5px;
+    margin-top: -4px;
+}
+
+#close:hover{
+    background-color: rgb(187, 186, 186);
+}
+
+
+#confirm-modal {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    padding-left: 33%;
+    padding-top: 15%;
+}
+
+#confirm-modal-content {
+    width: 450px;
+    height: 150px;
+    background-color: white;
+    border-radius: 4px;
+    padding: 40px 40px; 
+}
+
+#feature-modal {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top:0;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+#feature-modal-content {
+    width: 350px;
+    height: 180px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 50px 50px; 
+    text-align: center;
+}
+
+#about-modal {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top:0;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+#about-modal-content {
+    width: 450px;
+    height: 350px;
+    background-color: rgb(22, 123, 240);
+    border-radius: 5px;
+    padding: 50px 50px; 
+    text-align: center;
+}
+
+#error-img{
+    width: 120px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#error-msg{
+    font-size: larger;
+    color: rgb(22, 123, 240);
+}
+
+#about-me{
+    font-size:xx-large;
+    color: white;
+}
+
+#jira-img{
+    margin-top: 20px;
+    width: 180px;
+}
+
+#link{
+    width: 110px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    justify-content: center;
+    margin-left: 160px;
+    margin-top: 10px;
+    border: 2px solid white;
+}
+
+#link:hover{
+    background-color: rgb(184, 163, 163);
+}
+
+a{
+    text-decoration: none;
+}
+
+#link-text{
+    color: white;
+    font-size: 18px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+#link{
+    display: flex;
+}
+
+#about-close{
+    position: absolute; 
+    color: white;
+    margin-left: 420px;
+    margin-top: -40px;
+    font-style: italic;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#copyright{
+    margin-top: 30px;
+    color: white;
+}
+    
+#del-btn{
+    padding: 7px 10px;
+    background-color:#0747A6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+#cancel-btnn{
+    padding: 7px 10px;
+    color: dimgray;
+    border: none;
+    border-radius: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+
 #content-text {
     width: 75%;
 }
 
 #content-details{
-    width: 25%;
-    
-}
-
-#actions{
-    display: flex;
-    margin-left: 120px;
+    width: 25%;  
 }
 
 #code{
@@ -454,16 +628,17 @@ input,select {
 }
 
 #ti-status{
-    background-color: #0747A6;
+    background-color: #1766db;
     height: 23px;
     width: 100px;
-    padding: 5px 5px;
+    padding: 8px 8px;
     display: flex;
     margin-top: 5px;
     border-radius: 3px;
     cursor: pointer;
     color: white;
     font-weight: bold;
+    text-align: center;
 }
 
 .drop-icon{
@@ -477,8 +652,8 @@ input,select {
 #ti-assignee{
     background-color: #dbdbdb;
     height: 23px;
-    width: 110px;
-    padding: 3px 3px;
+    width: 120px;
+    padding: 8px 8px;
     display: flex;
     margin-top: 5px;
     border-radius: 3px;
@@ -486,6 +661,14 @@ input,select {
 }
 
 #t-assignee{
+    margin-left: 5px;
+}
+
+#t-reporter{
+    margin-left: 5px;
+}
+
+#t-priority{
     margin-left: 5px;
 }
 
@@ -502,8 +685,8 @@ input,select {
 #ti-reporter{
     background-color: #dbdbdb;
     height: 23px;
-    width: 100px;
-    padding: 3px 3px;
+    width: 120px;
+    padding: 8px 8px;
     display: flex;
     margin-top: 5px;
     border-radius: 3px;
@@ -514,8 +697,8 @@ input,select {
 #ti-priority{
     background-color: #dbdbdb;
     height: 23px;
-    width: 100px;
-    padding: 3px 3px;
+    width: 80px;
+    padding: 8px 8px;
     display: flex;
     margin-top: 5px;
     border-radius: 3px;
@@ -527,8 +710,8 @@ input,select {
 }
 
 #right-details{
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     color: dimgray;
 }
 
@@ -542,28 +725,67 @@ input,select {
     z-index: 1;
   }
 
-  .dropdown-content div {
-   
+  .dropdown-content div { 
     padding: 12px 16px;
     display: block;
     cursor: pointer;
   }
 
-  .dropdown-content div:hover {background-color: #ddd;}
+  .dropdown-content div:hover {
+      background-color: #ddd;
+    }
 
   .dropdown-content img{
         margin-right: 10px;
         margin-top: 5px;
   }
 
-  .show {display: block;}
-  .show1 {display: block;}
-  .show2 {display: block;}
-  .show3 {display: block;}
-  .show4 {display: block;}
-  
-  
+  #comment-area{
+        margin-top: 20px;
+  }
 
+  #comment-box{
+      width: 480px;
+      margin-left: 10px;
+      border: 1px solid;
+      height: 50px;
+  }
+
+  #comment-actions{
+      font-size: 12px;
+      margin-top: 5px;
+  }
+
+  #comment-btn{
+    padding: 7px 10px;
+    background-color:#0747A6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    float: right;
+    margin-right: 65px;
+    margin-top: -5px;
+}
+
+#comment-btn:hover{
+    background-color:#1361d4;
+  }
+
+  #comment-section{
+      margin-top: 60px;
+      display: flex;
+  }
+
+  #comments{
+      margin-left: 20px;
+      margin-top: -10px;
+  }
+
+  .show {
+      display: block;
+    }
 
   #search-modal {
     width: 100%;
@@ -636,4 +858,3 @@ input,select {
 #search-close:hover{
     color: #097fdf;
 }
-

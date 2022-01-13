@@ -6,10 +6,11 @@ export default class JiraBoard {
 
         JiraBoard.statuss().forEach(status => {
             const statusView = new Status(status.id,status.title);
-            //console.log('Title: '+status.title)
             this.root.appendChild(statusView.elements.root)
         });
     }  
+
+    // TYPE OF STATUS STORED STATICALLY
     
     static statuss() {
         return [

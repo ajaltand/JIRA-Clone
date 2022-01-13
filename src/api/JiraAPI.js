@@ -1,16 +1,18 @@
 export default class JiraAPI {
+
+    // FETCH DATA FROM THE LOCAL STORAGE
     static getItem(statusId) {
         const status = read().find(status => status.id == statusId);
+        
         if (!status) {
             return [];
         }
         
         return status.tickets;
-        
-        
     }
 
-    static insertItem(statusId, issueName, issueType, issueDetail,issueAssignee, issueReportor , issuePriority,comments) {
+    // INSERT TICKET DATA IN LOCAL STORAGE
+    static insertItem(statusId, issueName, issueType, issueDetail,issueAssignee, issueReportor , issuePriority,issueComments) {
         const data = read();
         const status = data.find(status => status.id == statusId);
         const ticket = {
@@ -21,20 +23,17 @@ export default class JiraAPI {
             issueReportor, 
             issueAssignee, 
             issuePriority,
-            comments
+            issueComments
         }
         
         status.tickets.push(ticket);
-        save(data);
-
+        save(data);   
+        
         return ticket;
 
     }
 
-    
-
-  
-
+    // VIEWS TICKET DETAILS
     static viewItems(ticketId){
         const data = read();
         const [ticket, currentStatus] =(() => {
@@ -44,12 +43,12 @@ export default class JiraAPI {
                 if(ticket){
                     console.log(ticket.issueName)
                     return [ticket, status]
-                }
-                
-             }
-             
+                } 
+             }        
         })();
     }
+
+    //UPDATE TICKET DETAILS
 
     static updateItems(ticketId, newData){
         const data = read();
@@ -63,16 +62,15 @@ export default class JiraAPI {
              }
         })();
 
+        // Updates the data
+
         ticket.issueName = newData.issueName === undefined ? ticket.issueName : newData.issueName;
         ticket.issueType = newData.issueType === undefined ? ticket.issueType : newData.issueType;
         ticket.issueDetail = newData.issueDetail === undefined ? ticket.issueDetail : newData.issueDetail;
-        //ticket.statusId = newData.statusId === undefined ? ticket.statusId : newData.statusId;
         ticket.issueAssignee = newData.issueAssignee === undefined ? ticket.issueAssignee : newData.issueAssignee;
         ticket.issueReportor = newData.issueReportor === undefined ? ticket.issueReportor : newData.issueReportor;
         ticket.issuePriority = newData.issuePriority === undefined ? ticket.issuePriority : newData.issuePriority;
         ticket.issueComments = newData.issueComments === undefined ? ticket.issueComments : newData.issueComments;
-
-
 
         // Updates the status and it's position
 
@@ -88,6 +86,8 @@ export default class JiraAPI {
         save(data);
     }
 
+    // DELETES THE TICKET
+
     static deleteItem(ticketId){
         const data = read();
 
@@ -101,6 +101,8 @@ export default class JiraAPI {
         save(data);
     }
 
+    // PASSES THE STATUS ID FROM TICKET DETAIL
+
     static viewStatus(ticketId){
         const data = read();  
             const currentStatus =(() => {
@@ -110,44 +112,46 @@ export default class JiraAPI {
                     if(ticket){
                         const tStatus = document.getElementById("t-status");
                         var statusTitle;
-                        if(status.id==1){statusTitle="BACKLOG"} 
-                        else if(status.id==2){statusTitle="IN PROGRESS"}
-                        else statusTitle="DONE" 
-                        tStatus.textContent=statusTitle;
+                        if(status.id==1){
+                            statusTitle="BACKLOG"
+                        } 
+                        else if(status.id==2){
+                            statusTitle="IN PROGRESS"
+                        }
+                        else 
+                            statusTitle="DONE" 
 
-                        /* When the user clicks on the button, 
-            toggle between hiding and showing the dropdown content */
+                        tStatus.textContent=statusTitle;
 
             const statusDropdownClick = document.getElementById("ti-status");
             const clickedBacklog = document.getElementById("backlog")
             const clickedProgress = document.getElementById("progress")
             const clickedDone = document.getElementById("done")
+
+         /* When the user clicks on the button, toggle between hiding and showing the dropdown content */
  
             statusDropdownClick.addEventListener("click", (e)=>{
                 e.stopPropagation();
-                document.getElementById("statusDropdown").classList.toggle("show1");
-
+                document.getElementById("statusDropdown").classList.toggle("show");
+            
+            // If user clicks backlog from dropdown    
                 clickedBacklog.addEventListener("click", () => {  
                         var newStatus = clickedBacklog.textContent;
                         var statusId=1;
                         updateStatus(statusId,newStatus);
-                        
                 })
 
+            // If user clicks in progress from dropdown     
                 clickedProgress.addEventListener("click", () => {  
                     var newStatus = clickedProgress.textContent;
                     var statusId=2;
                     updateStatus(statusId,newStatus);
-                    
-                        
                 })
 
                 clickedDone.addEventListener("click", () => {  
                     var newStatus = clickedDone.textContent;
                     var statusId=3;
-                    updateStatus(statusId,newStatus);
-                    
-                        
+                    updateStatus(statusId,newStatus);      
                 })
 
                 function updateStatus(statusId,newStatus){
@@ -168,24 +172,22 @@ export default class JiraAPI {
             // Close the dropdown if the user clicks outside of it
             window.onclick = function(event) {
                 if (!event.target.matches('#t-status')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show1')) {
-                    openDropdown.classList.remove('show1');
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
                     }
-                }
                 }
             }
 
-                    }
-                 }
-            })();
+        }
+        }
+        })();
     }
-
-    
 }
 
 function read() {
