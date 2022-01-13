@@ -55,10 +55,18 @@
         </nav>
          
         <div id="main-container">
-            <div id = "board-info"> Project / <span id="p-name"></span> / Kanban Board </div>
-            <h1 style="font-size: 25px; padding-left: 20px;">Kanban Board</h1>
-            <div id="search"><input type="text"></div>
-
+            <div id="main-top">
+                <div id="information">
+                    <div id = "board-info"> Project / <span id="p-name"></span> / Kanban Board </div>
+                    <h1 style="font-size: 25px; padding-left: 20px;">Kanban Board</h1>
+                </div>
+                <div id="create-popMessage">
+                    <h1>Issue has been successfully created!!!</h1>
+                </div>
+                <div id="delete-popMessage">
+                    <h1>Issue has been successfully deleted!!!</h1>
+                </div>
+            </div>    
             <div id= "tickets-container">
                 
             </div>
@@ -145,16 +153,20 @@
     <div id="ticket-modal">
         <div id="ticket-modal-content">
             <div id="content-text">
-                <span id="code"><p id ="type"></p>-<p id ="t-id"></p></span>
+                <div id="code"><img id ="ticket-type-image" src="" style="margin-right: 5px;"><span id ="type"></span>-<span id ="t-id"></span></div>
                 <div id="typeDropdown" class="dropdown-content">
-                    <p id="issue">Issue</p>
-                    <p id="bug">Bug</p>
-                    <p id="story">Story</p>
+                    <div id="issue"><img src="images/task.png" >Task</div>
+                    <div id="bug"><img src="images/bug.png">Bug</div>
+                    <div id="story"><img src="images/story.png">Story</div>
                 </div>
                 <h1 contenteditable id ="t-name"></h1>
                 <div>Description: <p contenteditable id ="t-details"></p></div>
-                Comments
-                <input>
+                    Comments
+                <input type="text" id = "comment-box">
+                <button id = "comment-btn">Comment</button>
+                <div id="comment-section">
+
+                </div>
             </div>    
             <div id = "content-details">
                 <div id="actions">
@@ -164,37 +176,38 @@
                 
                 <div id="right-details">
                     <h1>STATUS</h1> 
-                    <span id ="t-status"></span>
+                    <div id="ti-status"><span id ="t-status" style="font-size: 14px;"></span><img class ="drop-icon" src="images/drop.png"></div>
                     <div id="statusDropdown" class="dropdown-content">
-                        <p id="backlog">BACKLOG</p>
-                        <p id="progress">IN PROGRESS</p>
-                        <p id="done">DONE</p>
+                        <div id="backlog">BACKLOG</div>
+                        <div id="progress">IN PROGRESS</div>
+                        <div id="done">DONE</div>
                     </div>
                 </div>
 
                 <div id="right-details">
                     <h1>ASSIGNEES</h1> 
-                    <p id ="t-assignee"></p>
+                    <div id ="ti-assignee"><img src="" id="ticket-assignee-image"><p id ="t-assignee"></p></div>
                     <div id="assigneeDropdown" class="dropdown-content">
-                        <p id="adam">Adam Jones</p>
-                        <p id="nick">Nick Fury</p>
-                        <p id="evans">Evans Rose</p>
+                        <div id="adam"><img id="dropAssigneeImg" src ="images/adam.png">Adam Jones</div>
+                        <div id="nick"><img id="dropAssigneeImg" src ="images/nick.png">Nick Fury</div>
+                        <div id="evans"><img id="dropAssigneeImg" src ="images/rose.png">Evans Rose</div>
                     </div>
                 </div>
 
                 <div id="right-details">
                     <h1>REPORTER</h1> 
-                    <p id ="t-reporter"></p>
+                    <div id ="ti-reporter"><img src="" id="ticket-reporter-image"><p id ="t-reporter"></p></div>
                     <div id="reporterDropdown" class="dropdown-content">
-                        <p id="adam1">Adam Jones</p>
-                        <p id="nick2">Nick Fury</p>
-                        <p id="evans3">Evans Rose</p>
+                        <div id="adam1"><img id="dropReporterImg" src ="images/adam.png">Adam Jones</div>
+                        <div id="nick1"><img id="dropReporterImg" src ="images/nick.png">Nick Fury</div>
+                        <div id="evans1"><img id="dropReporterImg" src ="images/rose.png">Evans Rose</div>
                     </div>
                 </div>
 
                 <div id="right-details">
                     <h1>PRIORITY</h1> 
-                    <p id ="t-priority"></p>
+                    <div id ="ti-priority"><p id ="t-priority"></p></div>
+
                     <div id="priorityDropdown" class="dropdown-content">
                         <p id="high">High</p>
                         <p id="medium">Medium</p>
@@ -205,6 +218,22 @@
             </div>    
 
         </div>  
+    </div>
+    <div id ="search-modal">
+        <div id = "search-modal-content">
+            <h1 style="margin-bottom: 20px; font-size: x-large;"> Search / Filter Issues</h1>
+            <div id="search-close"><p style="font-size: 50px; font-weight: lighter; margin-top: -5px;">x</p></div>
+
+            <img id ="search-icon" src="images/search.png"><input id="search-input" placeholder="Search by ticket title, description, assignee">
+
+            <button id="search-btn">Search</button>
+            <hr style=" border-top: 1px solid #0747A6; margin-top:1px; width:400px;">
+
+            <div id = "search-results">
+                <div id ="ticket"></div>                
+            </div>
+
+        </div>
     </div>
 </body>
 <script src="src/script.js" type="module"></script>

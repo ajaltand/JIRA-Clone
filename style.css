@@ -194,10 +194,37 @@ li{
     display: block;
 }
 
+#main-top{
+    display: flex;
+}
+
 #board-info {
     padding-left: 20px;
     padding-top: 25px;
     padding-bottom: 10px;
+}
+
+
+#create-popMessage{
+    background-color: rgb(1, 155, 1);
+    color: white;
+    float: right;
+    margin-left: 550px;
+    margin-top: 30px;
+    padding: 15px 15px;
+    display: none;
+    border-radius: 4px;
+}
+#delete-popMessage{
+    background-color: red;
+    color: white;
+    float: right;
+    margin-left: 750px;
+    margin-top: 30px;
+    padding: 15px 15px;
+    display: none;
+    border-radius: 4px;
+    position: absolute;
 }
 
 #project-container{
@@ -236,6 +263,8 @@ li{
 
 #tickets-container{
     display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
 #status{
@@ -254,20 +283,47 @@ li{
     border-radius: 5px;
     background-color: white;
     box-shadow: 5px 8px 16px #888888;
-    cursor: pointer;
+    cursor: pointer;   
+}
 
+#ticket-box:hover{
+    
+    border-radius: 6px;
+    background-color: rgb(241, 238, 238);
+      
+}
+
+
+#ticket-title{
+    font-size: 16px;
+}
+
+#ticket-assignee-img{
+    width: 25px;
+    height: 25px;
+    float: right;
+    margin-left: 200px;
+}
+
+#ticket-asignee-image{
+    margin-right: 10px;
+}
+
+
+
+#title-img{
+    display: flex;
+    margin-top: 15px;
 }
 
 .dropDivArea{
-    height: 50px;
-    margin-top: 20px;
+    height: 30px;
+    margin-top: 40px;
     /* transition: background 0.15s, height 0.15s; */
 }
 
 .dropDivArea--active{
-    height: 50px;
-    
-    
+    height: 50px;   
 }
 
 #create-modal {
@@ -383,11 +439,87 @@ input,select {
 
 #code{
     display: flex;
+    width: 80px;
+    padding: 5px 5px;
+    cursor: pointer;
+}
+
+#code:hover{
+    background-color: #dbdbdb;
 }
 
 #t-name{
     font-size: 25px;
     margin: 20px 0;
+}
+
+#ti-status{
+    background-color: #0747A6;
+    height: 23px;
+    width: 100px;
+    padding: 5px 5px;
+    display: flex;
+    margin-top: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.drop-icon{
+    width:15px ;
+    height:15px;
+    margin-top: 1px;
+    margin-left: 5px;
+    float: right;
+}
+
+#ti-assignee{
+    background-color: #dbdbdb;
+    height: 23px;
+    width: 110px;
+    padding: 3px 3px;
+    display: flex;
+    margin-top: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#t-assignee{
+    margin-left: 5px;
+}
+
+#dropAssigneeImg{
+    width: 20px;
+    height: 20px;
+}
+
+#dropReporterImg{
+    width: 20px;
+    height: 20px;
+}
+
+#ti-reporter{
+    background-color: #dbdbdb;
+    height: 23px;
+    width: 100px;
+    padding: 3px 3px;
+    display: flex;
+    margin-top: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#ti-priority{
+    background-color: #dbdbdb;
+    height: 23px;
+    width: 100px;
+    padding: 3px 3px;
+    display: flex;
+    margin-top: 5px;
+    border-radius: 3px;
+    cursor: pointer;
 }
 
 #t-details{
@@ -410,13 +542,98 @@ input,select {
     z-index: 1;
   }
 
+  .dropdown-content div {
+   
+    padding: 12px 16px;
+    display: block;
+    cursor: pointer;
+  }
 
-  
+  .dropdown-content div:hover {background-color: #ddd;}
+
+  .dropdown-content img{
+        margin-right: 10px;
+        margin-top: 5px;
+  }
+
   .show {display: block;}
   .show1 {display: block;}
   .show2 {display: block;}
+  .show3 {display: block;}
+  .show4 {display: block;}
+  
   
 
 
+  #search-modal {
+    width: 100%;
+    height: 900px;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
 
+#search-modal-content {
+    width: 500px;
+    height: 100%;
+    background-color: white;
+    border-radius: 4px;
+    padding: 30px;
+    position: relative;
+}
+
+#search-input{
+    width: 400px;
+    height: 50px;
+    border: none;
+    background-color: white;
+}
+
+#search-icon{
+    width: 20px;
+    height: 20px;
+    padding-top: 20px;
+    margin-right: 10px;
+}
+
+#search-btn{
+    padding: 7px 10px;
+    background-color:#0747A6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
   
+#search-results{
+    margin-top: 20px;
+}
+
+#search-results #ticket-box{
+    width: 300px;
+    margin-left: 50px;
+}
+
+#search-close{
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 5px; 
+    height: 60px;
+    width: 60px;
+    margin-left: 500px;
+    margin-top: -70px;
+    text-align: center;
+    color: grey;
+    cursor: pointer;
+    position: absolute;   
+}
+
+#search-close:hover{
+    color: #097fdf;
+}
+

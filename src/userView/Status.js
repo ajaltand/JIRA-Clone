@@ -1,6 +1,8 @@
 import JiraAPI from "../api/JiraAPI.js";
 import DropDivArea from "./DropDivArea.js";
 import Ticket from "./Ticket.js";
+var ticketArray=[];
+var ticket ={};
 
 export default class Status {
     constructor(id, title) {
@@ -9,7 +11,7 @@ export default class Status {
         this.elements.title = this.elements.root.querySelector("#status-title");
         this.elements.tickets = this.elements.root.querySelector("#ticket-list");
 
-        
+       
 
         this.elements.root.dataset.id = id;
         this.elements.title.textContent = title;
@@ -17,10 +19,13 @@ export default class Status {
         
 
         const DropDivAreaDown = DropDivArea.createDropDivArea();
-        this.elements.tickets.appendChild(DropDivAreaDown);
+        this.elements.tickets.appendChild(DropDivAreaDown);        
 
         JiraAPI.getItem(id).forEach(ticket => {
+        
             this.renderTicket(ticket)
+            
+            
         })
 
     }
@@ -40,8 +45,8 @@ export default class Status {
         `).children[0];
     }
     renderTicket(data) {
-        const ticket = new Ticket(data.id, data.issueName, data.issueType, data.issueDetail, data.issueReportor, data.issueAssignee, data.issuePriority);
-
+        ticket = new Ticket(data.id, data.issueName, data.issueType, data.issueDetail, data.issueReportor, data.issueAssignee, data.issuePriority, data.issueComments);
+        
         this.elements.tickets.appendChild(ticket.elements.root);
     }
 }

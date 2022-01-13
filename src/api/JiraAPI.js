@@ -1,15 +1,16 @@
 export default class JiraAPI {
     static getItem(statusId) {
         const status = read().find(status => status.id == statusId);
-    
         if (!status) {
             return [];
         }
-
+        
         return status.tickets;
+        
+        
     }
 
-    static insertItem(statusId, issueName, issueType, issueDetail, issueReportor, issueAssignee, issuePriority) {
+    static insertItem(statusId, issueName, issueType, issueDetail,issueAssignee, issueReportor , issuePriority,comments) {
         const data = read();
         const status = data.find(status => status.id == statusId);
         const ticket = {
@@ -19,9 +20,8 @@ export default class JiraAPI {
             issueDetail, 
             issueReportor, 
             issueAssignee, 
-            issuePriority
-            
-            
+            issuePriority,
+            comments
         }
         
         status.tickets.push(ticket);
@@ -30,6 +30,10 @@ export default class JiraAPI {
         return ticket;
 
     }
+
+    
+
+  
 
     static viewItems(ticketId){
         const data = read();
@@ -64,6 +68,9 @@ export default class JiraAPI {
         ticket.issueDetail = newData.issueDetail === undefined ? ticket.issueDetail : newData.issueDetail;
         //ticket.statusId = newData.statusId === undefined ? ticket.statusId : newData.statusId;
         ticket.issueAssignee = newData.issueAssignee === undefined ? ticket.issueAssignee : newData.issueAssignee;
+        ticket.issueReportor = newData.issueReportor === undefined ? ticket.issueReportor : newData.issueReportor;
+        ticket.issuePriority = newData.issuePriority === undefined ? ticket.issuePriority : newData.issuePriority;
+        ticket.issueComments = newData.issueComments === undefined ? ticket.issueComments : newData.issueComments;
 
 
 
@@ -111,20 +118,19 @@ export default class JiraAPI {
                         /* When the user clicks on the button, 
             toggle between hiding and showing the dropdown content */
 
-            const statusDropdownClick = document.getElementById("t-status");
+            const statusDropdownClick = document.getElementById("ti-status");
             const clickedBacklog = document.getElementById("backlog")
             const clickedProgress = document.getElementById("progress")
             const clickedDone = document.getElementById("done")
  
-            statusDropdownClick.addEventListener("click", ()=>{
-                
+            statusDropdownClick.addEventListener("click", (e)=>{
+                e.stopPropagation();
                 document.getElementById("statusDropdown").classList.toggle("show1");
 
                 clickedBacklog.addEventListener("click", () => {  
                         var newStatus = clickedBacklog.textContent;
                         var statusId=1;
                         updateStatus(statusId,newStatus);
-                        
                         
                 })
 
@@ -161,7 +167,7 @@ export default class JiraAPI {
   
             // Close the dropdown if the user clicks outside of it
             window.onclick = function(event) {
-                if (event.target.matches('.dropdown-content')) {
+                if (!event.target.matches('#t-status')) {
                 var dropdowns = document.getElementsByClassName("dropdown-content");
                 
                 var i;
